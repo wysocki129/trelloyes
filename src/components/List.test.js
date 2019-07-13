@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import List from './List';
-import Card from './Card';
 import renderer from 'react-test-renderer';
 
 const store = {
@@ -44,15 +43,26 @@ const store = {
 	}
 };
 
-it('renders the List as expected', () => {
-	const tree = renderer
-		.create(
-			<div className="App-list">
-				{store.lists.map(list => (
-					<List key={list.id} header={list.header} cards={list.cardIds.map(id => store.allCards[id])} />
-				))}
-			</div>
-		)
-		.toJSON();
-	expect(tree).toMatchSnapshot();
+describe('List Component', () => {
+	it('renders without crashing', () => {
+		const div = document.createElement('div');
+		ReactDOM.render(
+			<List key={store.lists[0].id} header={store.lists[0].header} cards={store.lists[0].cardIds.map(id => store.allCards[id])} />,
+			div
+		);
+		ReactDOM.unmountComponentAtNode(div);
+	});
+
+	it('renders the List as expected', () => {
+		const tree = renderer
+			.create(
+				<div className="App-list">
+					{store.lists.map(list => (
+						<List key={list.id} header={list.header} cards={list.cardIds.map(id => store.allCards[id])} />
+					))}
+				</div>
+			)
+			.toJSON();
+		expect(tree).toMatchSnapshot();
+	});
 });
