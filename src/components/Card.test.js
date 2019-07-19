@@ -13,7 +13,9 @@ describe('Card component', () => {
 
 	// Snapshot Test
 	it('renders the the Card as expected', () => {
-		const tree = renderer.create(<Card title="Title" content="content" />).toJSON();
+		const tree = renderer
+			.create(<Card title="Title" content="content" />)
+			.toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 });

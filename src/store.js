@@ -13,7 +13,21 @@ const STORE = {
 		{
 			id: '3',
 			header: 'Third list',
-			cardIds: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm']
+			cardIds: [
+				'a',
+				'b',
+				'c',
+				'd',
+				'e',
+				'f',
+				'g',
+				'h',
+				'i',
+				'j',
+				'k',
+				'l',
+				'm'
+			]
 		},
 		{
 			id: '4',
